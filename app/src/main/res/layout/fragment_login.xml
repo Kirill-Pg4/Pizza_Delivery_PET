@@ -27,7 +27,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="128dp"
                 android:hint="@string/prompt_email"
-                app:errorEnabled="true"
+                app:errorEnabled="@{viewModel.errorEnabled}"
                 android:padding="16dp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:startIconContentDescription="@string/prompt_email"
@@ -36,7 +36,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/Email_Input"
                     android:layout_width="match_parent"
-                    android:text="@{viewModel.login.toString()}"
+                    android:text="@={viewModel.email}"
                     android:layout_height="wrap_content"
                     android:inputType="text|textEmailAddress|textAutoComplete|textAutoCorrect" />
 
@@ -57,7 +57,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/Password_Input"
                     android:layout_width="match_parent"
-                    android:text="@{viewModel.password.toString()}"
+                    android:text="@{viewModel.password}"
                     android:layout_height="wrap_content"
                     android:inputType="text|textPassword|textAutoComplete" />
 
@@ -78,16 +78,7 @@
                 app:strokeWidth="2dp"
                 app:icon="@drawable/baseline_pizza_24" />
 
-            <CheckBox
-                android:id="@+id/RememberMe_CheckBox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="32dp"
-                android:checked="true"
-                android:text="Remeber Me"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/Password_TextField" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </FrameLayout>

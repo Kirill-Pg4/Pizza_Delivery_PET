@@ -5,11 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.pizzadeliverypet.R
 import com.example.pizzadeliverypet.data.list2
 import com.example.pizzadeliverypet.databinding.FragmentMenuBinding
 import com.example.pizzadeliverypet.other.DishesAdapter
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MenuFragment : Fragment() {
 
@@ -33,9 +35,12 @@ class MenuFragment : Fragment() {
         val recyclerView = binding.recyclerView
         recyclerView.adapter = DishesAdapter(list2)
         recyclerView.layoutManager = LinearLayoutManager(context)
-
+        //val bottomNavView = binding.bottomNavigationView
+        //val navController = findNavController(R.id.)
 
     }
+
+
 
 
 }

@@ -1,32 +1,46 @@
 package com.example.pizzadeliverypet.ui.viewModels
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.navigation.fragment.findNavController
 import java.io.Closeable
 
 class LogInViewModel : ViewModel() {
 
-    private var _login : String = ""
-    var login : String = ""
-        get() = _login
+    private val _email  = MutableLiveData<String>("")
+    val email : MutableLiveData<String>
+        get() = _email
 
-    private val _password : String = ""
-    val password : String
+    private val _password = MutableLiveData<String>("")
+    val password : MutableLiveData<String>
         get() = _password
 
-    private var _ErrorEnabled : Boolean = false
-    var ErrorEnabled : Boolean = false
+    private val _ErrorEnabled = MutableLiveData<Boolean>(false
+    )
+    val ErrorEnabled : LiveData<Boolean>
         get() = _ErrorEnabled
 
-   /* fun checkLogin(): Boolean{
-        var fin = ErrorEnabled
-        if (login.contains('@')){
-            _login = login
-            _ErrorEnabled = false
+    private val _ErrorTextEmail = MutableLiveData<String>("")
+    val ErrorTextEmail : MutableLiveData<String>
+        get() = _ErrorTextEmail
 
+
+    fun checkLogin(): Boolean{
+        var fin = ErrorEnabled.value
+        if (email.value.toString().contains("@")){
+            _email.value = email.value
+            _ErrorEnabled.value = false
+            _ErrorTextEmail.value = ""
+            fin = true
         }
-
+        else{
+            _ErrorTextEmail.value = "Please, specify a valid Email"
+            _ErrorEnabled.value = true
+            fin = false
+        }
+        return fin
     }
-    */
+
 }
