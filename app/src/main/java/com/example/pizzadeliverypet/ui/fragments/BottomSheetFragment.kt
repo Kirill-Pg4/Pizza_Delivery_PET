@@ -8,11 +8,12 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.pizzadeliverypet.R
 import com.example.pizzadeliverypet.databinding.FragmentBasketBinding
+import com.example.pizzadeliverypet.databinding.FragmentBottomSheetBinding
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
+class BottomSheetFragment : BottomSheetDialogFragment() {
 
-class BasketFragment : Fragment() {
-
-    lateinit var binding: FragmentBasketBinding
+    lateinit var binding: FragmentBottomSheetBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -22,14 +23,14 @@ class BasketFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentBasketBinding.inflate(inflater)
+        binding = FragmentBottomSheetBinding.inflate(inflater)
         return binding.root
     }
 
     override fun onStart() {
         super.onStart()
         binding.OrderButton.setOnClickListener{
-            findNavController().navigate(R.id.action_basketFragment_to_bottomSheetFragment)
+            findNavController().navigate(R.id.action_bottomSheetFragment_to_menuFragment)
         }
     }
 
