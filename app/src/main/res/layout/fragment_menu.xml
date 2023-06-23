@@ -10,15 +10,76 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/FilterGroup"
             app:layout_constraintVertical_bias="0.0" />
+
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/FilterGroup"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <Button
+                android:id="@+id/PizzaButtonGroup"
+                style="@style/Widget.App.Button.OutlinedButton.IconOnly"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#FFC107"
+                android:clickable="true"
+                android:text="Pizza"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:icon="@drawable/baseline_pizza_24"
+                app:iconGravity="textStart"
+                app:iconSize="32dp"
+                app:iconTint="@color/black" />
+
+            <Button
+                android:id="@+id/BurgerButtonGroup"
+                style="@style/Widget.App.Button.OutlinedButton.IconOnly"
+                android:layout_width="128dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#FFC107"
+                android:clickable="true"
+                android:text="Burger"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:icon="@drawable/burger_ic"
+                app:iconGravity="textStart"
+                app:iconSize="32dp"
+                app:iconTint="@color/black" />
+
+            <Button
+                android:id="@+id/DrinksButtonGroup"
+                style="@style/Widget.App.Button.OutlinedButton.IconOnly"
+                android:layout_width="128dp"
+                android:layout_height="match_parent"
+                android:backgroundTint="#FFC107"
+                android:clickable="true"
+                android:text="Drinks"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:icon="@drawable/baseline_sports_bar_24"
+                app:iconGravity="textStart"
+                app:iconSize="32dp"
+                app:iconTint="@color/black" />
+        </com.google.android.material.button.MaterialButtonToggleGroup>
 
         <ImageView
             android:id="@+id/imageView"

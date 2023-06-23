@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.pizzadeliverypet.R
-import com.example.pizzadeliverypet.data.list2
+import com.example.pizzadeliverypet.data.models.database_seed
 import com.example.pizzadeliverypet.databinding.FragmentMenuBinding
 import com.example.pizzadeliverypet.other.DishesAdapter
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -33,7 +33,24 @@ class MenuFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val recyclerView = binding.recyclerView
-        recyclerView.adapter = DishesAdapter(list2)
+
+        recyclerView.adapter = DishesAdapter(database_seed.standardPositionPizza)
+
+
+        binding.PizzaButtonGroup.setOnClickListener{
+            recyclerView.adapter = null
+            recyclerView.adapter = DishesAdapter(database_seed.standardPositionPizza)
+        }
+        binding.BurgerButtonGroup.setOnClickListener{
+            recyclerView.adapter = null
+            recyclerView.adapter = DishesAdapter(database_seed.standardPositionBurger)
+        }
+
+        binding.DrinksButtonGroup.setOnClickListener{
+            recyclerView.adapter = null
+            recyclerView.adapter = DishesAdapter(database_seed.standardPositionDrinks)
+        }
+
         recyclerView.layoutManager = LinearLayoutManager(context)
         //val bottomNavView = binding.bottomNavigationView
         //val navController = findNavController(R.id.)

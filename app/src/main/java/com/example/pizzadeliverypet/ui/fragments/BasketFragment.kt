@@ -6,8 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.pizzadeliverypet.R
+import com.example.pizzadeliverypet.data.models.database_seed
 import com.example.pizzadeliverypet.databinding.FragmentBasketBinding
+import com.example.pizzadeliverypet.databinding.FragmentMenuBinding
+import com.example.pizzadeliverypet.other.DishesAdapter
+import com.example.pizzadeliverypet.other.DishesBasketAdpter
 
 
 class BasketFragment : Fragment() {
@@ -22,7 +27,7 @@ class BasketFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentBasketBinding.inflate(inflater)
+        binding = FragmentBasketBinding.inflate(inflater,container,false)
         return binding.root
     }
 
@@ -33,4 +38,19 @@ class BasketFragment : Fragment() {
         }
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val recyclerView = binding.recyclerView2
+        recyclerView.adapter = DishesBasketAdpter(listOf(database_seed.standardPositionBurger[1], database_seed.standardPositionBurger[5], database_seed.standardPositionBurger[8]))
+        recyclerView.layoutManager = LinearLayoutManager(context)
+        //val bottomNavView = binding.bottomNavigationView
+        //val navController = findNavController(R.id.)
+
+    }
+
 }
+
+
+
+
+

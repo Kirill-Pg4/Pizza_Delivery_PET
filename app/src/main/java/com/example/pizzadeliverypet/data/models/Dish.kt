@@ -11,5 +11,7 @@ data class Dish(
     val DishesImg: Int,
     val DishesName: String,
     val DishesShortDescribe: String,
-    val DishesProp : String
+    val DishesProp : String,
+    val DishPrice : String,
+    val DishGram : String
 )
