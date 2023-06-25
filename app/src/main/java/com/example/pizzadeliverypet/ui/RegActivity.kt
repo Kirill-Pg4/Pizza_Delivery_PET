@@ -3,32 +3,27 @@ package com.example.pizzadeliverypet.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.Contacts.Intents.UI
-import android.util.Log
+import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
-import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.NavHostFragment
 import com.example.pizzadeliverypet.R
-import com.example.pizzadeliverypet.databinding.ActivityMainBinding
-import com.example.pizzadeliverypet.databinding.FragmentLoginBinding
+import com.example.pizzadeliverypet.databinding.ActivityRegBinding
+import com.example.pizzadeliverypet.databinding.FragmentItemBasketBinding
 import com.example.pizzadeliverypet.ui.viewModels.LogInViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
-
-class MainActivity : AppCompatActivity() {
+class RegActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth;
-    lateinit var binding: ActivityMainBinding
     private val viewModel: LogInViewModel by viewModels()
+    lateinit var binding: ActivityRegBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        binding.lifecycleOwner = this
+        binding = ActivityRegBinding.inflate(layoutInflater)
         auth = Firebase.auth
-        binding.viewModel = viewModel
         setContentView(binding.root)
     }
 
@@ -36,28 +31,32 @@ class MainActivity : AppCompatActivity() {
         super.onStart()
 
 
-        binding.LogInButton.setOnClickListener{
+        binding.AddingText.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
 
-            if (!binding.EmailInput.text.toString().isEmpty() && !binding.PasswordInput.text.toString().isEmpty()
-            ) {
+
+
+        binding.RegButton.setOnClickListener {
+            if(!binding.EmailInput.text.toString().isEmpty() && !binding.PasswordInput.text.toString().isEmpty()) {
                 val email = binding.EmailInput.text.toString()
                 val password = binding.PasswordInput.text.toString()
-                Log.d("Fire", "$email , $password")
-                auth.signInWithEmailAndPassword(email, password)
+                auth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this) { task ->
                         if (task.isSuccessful) {
-                            val intent = Intent(this, BaseActivity::class.java)
+                            val intent = Intent(this, MainActivity::class.java)
                             startActivity(intent)
                         } else {
                             Toast.makeText(
                                 baseContext,
-                                "Authentication failed.",
+                                "Registration failed.",
                                 Toast.LENGTH_SHORT,
                             ).show()
                         }
                     }
             }
-            else {
+            else{
                 Toast.makeText(
                     baseContext,
                     "Please, input valid data",
@@ -65,10 +64,6 @@ class MainActivity : AppCompatActivity() {
                 ).show()
             }
         }
-
-        binding.AddindText.setOnClickListener{
-            val intent = Intent(this, RegActivity::class.java)
-            startActivity(intent)
-        }
     }
+
 }

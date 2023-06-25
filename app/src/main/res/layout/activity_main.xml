@@ -64,7 +64,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/LogIn_Button"
+                android:id="@+id/LogInButton"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -73,11 +73,23 @@
                 android:padding="16dp"
                 android:text="login"
                 android:textSize="16sp"
+                app:icon="@drawable/baseline_pizza_24"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:strokeWidth="2dp"
-                app:icon="@drawable/baseline_pizza_24" />
+                app:strokeWidth="2dp" />
 
+            <TextView
+                android:id="@+id/AddindText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:clickable="true"
+                android:padding="8dp"
+                android:text="Are you ain`t registrated in our app?"
+                android:textStyle="bold|italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Password_TextField" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
