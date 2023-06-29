@@ -1,12 +1,11 @@
 package com.example.pizzadeliverypet.data.models
 
+import androidx.lifecycle.MutableLiveData
 import com.example.pizzadeliverypet.R
 
 object database_seed {
     var standardPositionBurger = mutableListOf<Dish>(
-        Dish(
-            1,
-            R.drawable.max_burg_pack,
+        Dish(1, R.drawable.max_burg_pack,
             "Max Burger Pack",
             "A mouthwatering combination of juicy beef patty, crispy bacon, fresh lettuce, tomatoes, cheese, and special sauce, served in a toasted bun. Comes with a side of golden fries and a refreshing drink.",
             "15 minutes",
@@ -86,16 +85,94 @@ object database_seed {
         ),
     )
     var standardPositionPizza = mutableListOf<Dish>(
-        Dish(1, R.drawable.bolgarian_pizza, "Bolgarian Pizza", "This pizza includes a blend of Bulgarian flavors with a variety of locally sourced ingredients. It features a thin crust topped with feta cheese, fresh tomatoes, olives, and traditional Bulgarian spices.", "20 minutes", "$12.99", "350 grams"),
-        Dish(2, R.drawable.eastukranian_pizza, "East Ukrainian Pizza", "This unique pizza combines the flavors of Eastern Ukraine. It has a thick crust with a generous topping of smoked sausage, sauerkraut, mushrooms, and melted cheese.", "25 minutes", "$14.99", "400 grams"),
-        Dish(3, R.drawable.greece_pizza, "Greek Pizza", "Experience the taste of Greece with this delicious pizza. It features a crispy crust topped with tangy tzatziki sauce, feta cheese, kalamata olives, fresh tomatoes, and a sprinkle of oregano.", "18 minutes", "$10.99", "300 grams"),
-        Dish(4, R.drawable.mexican_pizza, "Mexican Pizza", "Indulge in the vibrant flavors of Mexico with this mouthwatering pizza. It comes with a spicy tomato sauce, seasoned ground beef, jalapeños, bell peppers, onions, and a generous layer of melted cheese.", "22 minutes", "$11.99", "350 grams"),
-        Dish(5, R.drawable.mix_pizza, "Mixed Pizza", "This pizza is a medley of various flavors and toppings. It features a combination of pepperoni, sausage, mushrooms, bell peppers, onions, and melted cheese on a classic crust.", "20 minutes", "$13.99", "380 grams"),
-        Dish(6, R.drawable.peperoniveget_pizza, "Pepperoni Veggie Pizza", "Enjoy the best of both worlds with this pepperoni and veggie combo. It includes a thin crust topped with pepperoni slices, mushrooms, bell peppers, onions, black olives, and melted cheese.", "18 minutes", "$12.99", "360 grams"),
-        Dish(7, R.drawable.seafood_pizza, "Seafood Pizza", "This pizza is a seafood lover's dream. It features a thin and crispy crust topped with a delectable combination of shrimp, crab meat, squid, garlic, herbs, and a sprinkle of Parmesan cheese.", "25 minutes", "$15.99", "420 grams"),
-        Dish(8, R.drawable.southukranian_pizza, "South Ukrainian Pizza", "Experience the flavors of Southern Ukraine with this unique pizza. It has a fluffy crust topped with traditional Ukrainian sausage, pickles, onions, garlic, and a drizzle of sour cream.", "23 minutes", "$13.99", "380 grams"),
-        Dish(9, R.drawable.students_pizza, "Student's Pizza", "This budget-friendly pizza is perfect for students. It comes with a classic crust topped with a simple yet satisfying combination of tomato sauce, mozzarella cheese, and your choice of two additional toppings.", "15 minutes", "$9.99", "300 grams"),
-        Dish(10, R.drawable.vegetarian_pizza, "Vegetarian Pizza", "For the veggie lovers out there, this pizza is a delight. It features a thin crust topped with a colorful assortment of fresh vegetables, including bell peppers, onions, tomatoes, mushrooms, and olives.", "18 minutes", "$11.99", "340 grams"),
+        Dish(
+            1,
+            R.drawable.bolgarian_pizza,
+            "Bolgarian Pizza",
+            "This pizza includes a blend of Bulgarian flavors with a variety of locally sourced ingredients. It features a thin crust topped with feta cheese, fresh tomatoes, olives, and traditional Bulgarian spices.",
+            "20 minutes",
+            "$12.99",
+            "350 grams"
+        ),
+        Dish(
+            2,
+            R.drawable.eastukranian_pizza,
+            "East Ukrainian Pizza",
+            "This unique pizza combines the flavors of Eastern Ukraine. It has a thick crust with a generous topping of smoked sausage, sauerkraut, mushrooms, and melted cheese.",
+            "25 minutes",
+            "$14.99",
+            "400 grams"
+        ),
+        Dish(
+            3,
+            R.drawable.greece_pizza,
+            "Greek Pizza",
+            "Experience the taste of Greece with this delicious pizza. It features a crispy crust topped with tangy tzatziki sauce, feta cheese, kalamata olives, fresh tomatoes, and a sprinkle of oregano.",
+            "18 minutes",
+            "$10.99",
+            "300 grams"
+        ),
+        Dish(
+            4,
+            R.drawable.mexican_pizza,
+            "Mexican Pizza",
+            "Indulge in the vibrant flavors of Mexico with this mouthwatering pizza. It comes with a spicy tomato sauce, seasoned ground beef, jalapeños, bell peppers, onions, and a generous layer of melted cheese.",
+            "22 minutes",
+            "$11.99",
+            "350 grams"
+        ),
+        Dish(
+            5,
+            R.drawable.mix_pizza,
+            "Mixed Pizza",
+            "This pizza is a medley of various flavors and toppings. It features a combination of pepperoni, sausage, mushrooms, bell peppers, onions, and melted cheese on a classic crust.",
+            "20 minutes",
+            "$13.99",
+            "380 grams"
+        ),
+        Dish(
+            6,
+            R.drawable.peperoniveget_pizza,
+            "Pepperoni Veggie Pizza",
+            "Enjoy the best of both worlds with this pepperoni and veggie combo. It includes a thin crust topped with pepperoni slices, mushrooms, bell peppers, onions, black olives, and melted cheese.",
+            "18 minutes",
+            "$12.99",
+            "360 grams"
+        ),
+        Dish(
+            7,
+            R.drawable.seafood_pizza,
+            "Seafood Pizza",
+            "This pizza is a seafood lover's dream. It features a thin and crispy crust topped with a delectable combination of shrimp, crab meat, squid, garlic, herbs, and a sprinkle of Parmesan cheese.",
+            "25 minutes",
+            "$15.99",
+            "420 grams"
+        ),
+        Dish(8,
+            DishesImg = R.drawable.southukranian_pizza,
+            DishesName = "South Ukrainian Pizza",
+            DishesShortDescribe = "Experience the flavors of Southern Ukraine with this unique pizza. It has a fluffy crust topped with traditional Ukrainian sausage, pickles, onions, garlic, and a drizzle of sour cream.",
+            DishesProp = "23 minutes",
+            DishPrice = "$13.99",
+            DishGram = "380 grams"
+        ),
+        Dish(
+            id = 9,
+            DishesImg = R.drawable.students_pizza,
+            DishesName = "Student's Pizza",
+            DishesShortDescribe = "This budget-friendly pizza is perfect for students. It comes with a classic crust topped with a simple yet satisfying combination of tomato sauce, mozzarella cheese, and your choice of two additional toppings.",
+            DishesProp = "15 minutes",
+            DishPrice = "$9.99",
+            DishGram = "300 grams"
+        ),
+        Dish(10,
+            DishesImg = R.drawable.vegetarian_pizza,
+            DishesName = "Vegetarian Pizza",
+            DishesShortDescribe = "For the veggie lovers out there, this pizza is a delight. It features a thin crust topped with a colorful assortment of fresh vegetables, including bell peppers, onions, tomatoes, mushrooms, and olives.",
+            DishesProp = "18 minutes",
+            DishPrice = "$11.99",
+            DishGram = "340 grams"
+        ),
         Dish(11, R.drawable.westukranian_pizza, "West Ukrainian Pizza", "Get a taste of Western Ukraine with this hearty pizza. It has a thick crust topped with succulent roasted pork, cabbage, potatoes, onions, and melted cheese.", "27 minutes", "$14.99", "400 grams")
     )
     var standardPositionDrinks = mutableListOf<Dish>(
@@ -110,4 +187,6 @@ object database_seed {
         Dish(9, R.drawable.schweppes_drink, "Schweppes", "A range of carbonated beverages available in various flavors, including tonic water, ginger ale, and club soda. They offer a fizzy and versatile option to pair with pizza.", "Instant", "$1.99", "500ml"),
         Dish(10, R.drawable.sprite_drink, "Sprite", "A lemon-lime flavored carbonated soft drink known for its crisp and clean taste. It provides a refreshing and citrusy complement to the flavors of pizza.", "Instant", "$1.99", "500ml")
         )
+    var OrderLi = mutableListOf<Dish>(standardPositionDrinks[1])
+    //val OrderLi = mutableListOf<Dish>(standardPositionDrinks[1], standardPositionDrinks[0])
 }

@@ -4,11 +4,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pizzadeliverypet.data.models.Dish
+import com.example.pizzadeliverypet.data.models.database_seed.standardPositionDrinks
 import com.example.pizzadeliverypet.databinding.FragmentBasketBinding
 import com.example.pizzadeliverypet.databinding.FragmentDishItemBinding
 import com.example.pizzadeliverypet.databinding.FragmentItemBasketBinding
 
-class DishesBasketAdpter(private val data: List<Dish>) : RecyclerView.Adapter<DishesBasketAdpter.MyViewHolder>() {
+class DishesBasketAdpter(private val data: MutableList<Dish>) : RecyclerView.Adapter<DishesBasketAdpter.MyViewHolder>() {
     inner class MyViewHolder(private val binding: FragmentItemBasketBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Dish) {
             binding.DishesImage.setImageResource(item.DishesImg)
@@ -24,7 +25,8 @@ class DishesBasketAdpter(private val data: List<Dish>) : RecyclerView.Adapter<Di
 
     override fun onBindViewHolder(holder: DishesBasketAdpter.MyViewHolder, position: Int) {
         val item = data[position]
-        holder.bind(item)
+        item?.let { holder.bind(it) }
+
     }
 
     override fun getItemCount() = data.size

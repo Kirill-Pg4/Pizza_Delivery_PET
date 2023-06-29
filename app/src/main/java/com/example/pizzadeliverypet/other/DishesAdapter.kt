@@ -1,21 +1,46 @@
 package com.example.pizzadeliverypet.other
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pizzadeliverypet.data.models.Dish
+import com.example.pizzadeliverypet.data.models.database_seed.OrderLi
 import com.example.pizzadeliverypet.databinding.FragmentDishItemBinding
+import kotlin.math.log
 
 
 class DishesAdapter(private val data: List<Dish>) : RecyclerView.Adapter<DishesAdapter.MyViewHolder>() {
 
+    interface ItemClickListener {
+        fun onButtonClick(dish: Dish)
+    }
+
     inner class MyViewHolder(private val binding: FragmentDishItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Dish) {
+            binding.id.text = item.id.toString()
             binding.DishesImage.setImageResource(item.DishesImg)
             binding.DishesName.text = item.DishesName
             binding.DishesProp.text = item.DishesProp
             binding.DishesShortDescribe.text = item.DishesShortDescribe
-            binding.DishesPriceGram.text = "${item.DishPrice} / ${item.DishGram}"
+            binding.DishesGram.text = item.DishGram
+            binding.DishesPrice.text = item.DishPrice
+            binding.dishL = item
+            binding.BuyButton.setOnClickListener {
+                OrderLi.add(item)
+                Log.d("Adapter","Loaded \n $OrderLi")
+
+            }
+        }
+        init {
+            // Установите слушатель нажатий для addButton
+            binding.BuyButton.setOnClickListener {
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    val dish = OrderLi[position]
+                    OrderLi.add(dish)
+                }
+            }
         }
     }
 

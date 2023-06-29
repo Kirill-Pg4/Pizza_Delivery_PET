@@ -9,9 +9,11 @@ import androidx.room.PrimaryKey
 data class Dish(
     @PrimaryKey(autoGenerate = true) val id: Int ,
     val DishesImg: Int,
+
     val DishesName: String,
     val DishesShortDescribe: String,
     val DishesProp : String,
     val DishPrice : String,
-    val DishGram : String
+    val DishGram : String,
+    var count:Int = 0
 )

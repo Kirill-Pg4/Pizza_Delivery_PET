@@ -51,7 +51,7 @@
             <Button
                 android:id="@+id/BurgerButtonGroup"
                 style="@style/Widget.App.Button.OutlinedButton.IconOnly"
-                android:layout_width="128dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#FFC107"
                 android:clickable="true"
@@ -67,7 +67,7 @@
             <Button
                 android:id="@+id/DrinksButtonGroup"
                 style="@style/Widget.App.Button.OutlinedButton.IconOnly"
-                android:layout_width="128dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:backgroundTint="#FFC107"
                 android:clickable="true"
