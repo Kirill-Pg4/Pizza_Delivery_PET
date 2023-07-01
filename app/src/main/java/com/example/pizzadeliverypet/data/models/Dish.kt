@@ -13,7 +13,7 @@ data class Dish(
     val DishesName: String,
     val DishesShortDescribe: String,
     val DishesProp : String,
-    val DishPrice : String,
+    val DishPrice : Float,
     val DishGram : String,
-    var count:Int = 0
+    var count:Int = 1
 )

@@ -2,6 +2,7 @@ package com.example.pizzadeliverypet.ui.fragments
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,12 +12,16 @@ import com.example.pizzadeliverypet.R
 import com.example.pizzadeliverypet.databinding.FragmentProfileBinding
 import com.example.pizzadeliverypet.ui.BaseActivity
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 
 class ProfileFragment : Fragment() {
 
     lateinit var binding: FragmentProfileBinding
+    val user = Firebase.auth.currentUser
+    val db = Firebase.firestore
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,7 +38,6 @@ class ProfileFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        val user = Firebase.auth.currentUser
         user?.let {
             // Name, email address, and profile photo Url
             binding.ProfileEmail.text = it.email
@@ -46,8 +50,10 @@ class ProfileFragment : Fragment() {
             activity?.finish()
         }
 
-
     }
+
+
+
 
 
 }

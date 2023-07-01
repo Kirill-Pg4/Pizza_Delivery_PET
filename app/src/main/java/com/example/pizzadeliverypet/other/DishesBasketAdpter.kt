@@ -1,9 +1,11 @@
 package com.example.pizzadeliverypet.other
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pizzadeliverypet.data.models.Dish
+import com.example.pizzadeliverypet.data.models.database_seed.OrderLi
 import com.example.pizzadeliverypet.data.models.database_seed.standardPositionDrinks
 import com.example.pizzadeliverypet.databinding.FragmentBasketBinding
 import com.example.pizzadeliverypet.databinding.FragmentDishItemBinding
@@ -16,6 +18,23 @@ class DishesBasketAdpter(private val data: MutableList<Dish>) : RecyclerView.Ada
             binding.DishesName.text = item.DishesName
             binding.DishesProp.text = item.DishesProp
             binding.DishesShortDescribe.text = item.DishesShortDescribe
+            binding.countOrd.text = item.count.toString()
+            binding.MinusBut.setOnClickListener{
+                if (item.count > 0){
+                    item.count--
+                    notifyDataSetChanged()
+                }
+            }
+            binding.PlusBut.setOnClickListener{
+                if (item.count >= 0 && item.count < 10){
+                    item.count++
+                    notifyDataSetChanged()
+                }
+            }
+            binding.DeleteButton.setOnClickListener{
+                OrderLi.remove(item)
+                notifyDataSetChanged()
+            }
         }
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DishesBasketAdpter.MyViewHolder {

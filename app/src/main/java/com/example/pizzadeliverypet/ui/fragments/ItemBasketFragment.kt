@@ -13,6 +13,7 @@ import com.example.pizzadeliverypet.databinding.FragmentItemBasketBindingImpl
 class ItemBasketFragment : Fragment() {
 
     lateinit var binding: FragmentItemBasketBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -25,8 +26,5 @@ class ItemBasketFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_item_basket,container,false)
         return binding.root
     }
-
-
-
 
 }

@@ -12,8 +12,6 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.NavHostFragment
 import com.example.pizzadeliverypet.R
 import com.example.pizzadeliverypet.databinding.ActivityMainBinding
-import com.example.pizzadeliverypet.databinding.FragmentLoginBinding
-import com.example.pizzadeliverypet.ui.viewModels.LogInViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -23,13 +21,11 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth;
     lateinit var binding: ActivityMainBinding
-    private val viewModel: LogInViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         binding.lifecycleOwner = this
         auth = Firebase.auth
-        binding.viewModel = viewModel
         setContentView(binding.root)
     }
 

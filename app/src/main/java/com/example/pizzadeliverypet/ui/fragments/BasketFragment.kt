@@ -22,12 +22,6 @@ class BasketFragment : Fragment() {
 
     lateinit var binding: FragmentBasketBinding
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -39,7 +33,9 @@ class BasketFragment : Fragment() {
     override fun onStart() {
         super.onStart()
         binding.OrderButton.setOnClickListener{
-            findNavController().navigate(R.id.action_basketFragment_to_bottomSheetFragment)
+            if(!OrderLi.isEmpty()) {
+                findNavController().navigate(R.id.action_basketFragment_to_bottomSheetFragment)
+            }
         }
     }
 
@@ -48,23 +44,6 @@ class BasketFragment : Fragment() {
         val recyclerView = binding.recyclerView2
         recyclerView.adapter = DishesBasketAdpter(OrderLi)
         recyclerView.layoutManager = LinearLayoutManager(context)
-        //val bottomNavView = binding.bottomNavigationView
-        //val navController = findNavController(R.id.)
-
-    }
-
-
-    override fun onPause() {
-        super.onPause()
-        Log.d("Fragments", "Fragments Basket on Pause")
-    }
-
-    override fun onResume() {
-        super.onResume()
-        //recyclerView.adapter = DishesBasketAdpter(OrderLi)
-        //recyclerView.adapter = DishesBasketAdpter(listOf(standardPositionPizza[1]))
-        Log.d("Fragments", "Fragments Basket on Resume")
-
     }
 
 }

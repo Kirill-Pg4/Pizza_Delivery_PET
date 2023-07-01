@@ -19,15 +19,6 @@ class DishItemFragment : Fragment() {
 
     lateinit var binding: FragmentDishItemBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        /*binding.BuyButton.setOnClickListener{
-            Log.d("Parker", "2Added: $OrderLi")
-            OrderLi.add(Dish(binding.id.toString().toInt(),binding.DishesImage.id,binding.DishesName.text.toString(),binding.DishesShortDescribe.text.toString(),binding.DishesProp.text.toString(),binding.DishesPrice.text.toString(),binding.DishesGram.text.toString()))
-        }*/
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -36,9 +27,6 @@ class DishItemFragment : Fragment() {
         return binding.root
     }
 
-    fun onBuy(view: View){
-        Log.d("Parker", "2Added: $OrderLi")
-        OrderLi.add(Dish(binding.id.toString().toInt(),binding.DishesImage.id,binding.DishesName.text.toString(),binding.DishesShortDescribe.text.toString(),binding.DishesProp.text.toString(),binding.DishesPrice.text.toString(),binding.DishesGram.text.toString()))
-    }
+
 
 }

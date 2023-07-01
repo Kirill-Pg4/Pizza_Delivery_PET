@@ -58,32 +58,4 @@ class MenuFragment : Fragment() {
 
     }
 
-    override fun onPause() {
-        super.onPause()
-        Log.d("Fragments", "Fragments Menu on Pause")
-    }
-
-    override fun onResume() {
-        super.onResume()
-        binding.recyclerView.setOnClickListener{
-
-                Log.d("Parker", "2Added: ${database_seed.OrderLi}")
-                //database_seed.OrderLi.add(Dish(binding.id.toString().toInt(),binding.DishesImage.id,binding.DishesName.text.toString(),binding.DishesShortDescribe.text.toString(),binding.DishesProp.text.toString(),binding.DishesPrice.text.toString(),binding.DishesGram.text.toString()))
-
-        }
-        Log.d("Fragments", "Fragments Menu on Resume")
-
-    }
-    /*
-    override fun onItemClick(dish: Dish) {
-        // Добавьте нажатый элемент в MutableList
-        OrderLi.add(dish)
-        // Уведомите адаптер об изменении данных
-        binding.recyclerView.adapter?.notifyDataSetChanged()
-    }
-*/
-
-
-
-
 }

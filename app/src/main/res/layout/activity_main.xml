@@ -5,9 +5,6 @@
 
     <data>
 
-        <variable
-            name="viewModel"
-            type="com.example.pizzadeliverypet.ui.viewModels.LogInViewModel" />
 
     </data>
 
@@ -27,7 +24,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="128dp"
                 android:hint="@string/prompt_email"
-                app:errorEnabled="@{viewModel.errorEnabled}"
                 android:padding="16dp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:startIconContentDescription="@string/prompt_email"
@@ -36,7 +32,6 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/Email_Input"
                     android:layout_width="match_parent"
-                    android:text="@={viewModel.email}"
                     android:layout_height="wrap_content"
                     android:inputType="text|textEmailAddress|textAutoComplete|textAutoCorrect" />
 
@@ -57,7 +52,6 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/Password_Input"
                     android:layout_width="match_parent"
-                    android:text="@{viewModel.password}"
                     android:layout_height="wrap_content"
                     android:inputType="text|textPassword|textAutoComplete" />
 

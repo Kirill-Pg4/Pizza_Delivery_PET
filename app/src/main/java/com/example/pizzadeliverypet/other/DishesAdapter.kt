@@ -24,16 +24,20 @@ class DishesAdapter(private val data: List<Dish>) : RecyclerView.Adapter<DishesA
             binding.DishesProp.text = item.DishesProp
             binding.DishesShortDescribe.text = item.DishesShortDescribe
             binding.DishesGram.text = item.DishGram
-            binding.DishesPrice.text = item.DishPrice
+            binding.DishesPrice.text = item.DishPrice.toString()+"$"
             binding.dishL = item
             binding.BuyButton.setOnClickListener {
-                OrderLi.add(item)
-                Log.d("Adapter","Loaded \n $OrderLi")
-
+                if(OrderLi.contains(item)){
+                    item.count++
+                }
+                else {
+                    OrderLi.add(item)
+                    Log.d("Adapter", "Loaded \n $OrderLi")
+                }
             }
         }
+        /*
         init {
-            // Установите слушатель нажатий для addButton
             binding.BuyButton.setOnClickListener {
                 val position = adapterPosition
                 if (position != RecyclerView.NO_POSITION) {
@@ -41,7 +45,7 @@ class DishesAdapter(private val data: List<Dish>) : RecyclerView.Adapter<DishesA
                     OrderLi.add(dish)
                 }
             }
-        }
+        }*/
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
