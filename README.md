@@ -6,7 +6,9 @@ This is my app for food and drink delivery. All the images and descriptions used
 
 - [@Kirill Pugach](https://github.com/Kirill-Pg4)
 
+## Video
 
+- [YouTube](https://youtu.be/WS81qFgDU6w)
 
 ## Features
 
